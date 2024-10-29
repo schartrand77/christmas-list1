@@ -66,19 +66,26 @@
             100% { color: red; }
         }
         
+        /* Scrollable List Container */
+        .scrollable-list {
+            max-height: 300px; /* Adjust height for mobile and desktop */
+            overflow-y: auto;
+            margin-top: 20px;
+            padding-right: 10px;
+            border-top: 1px solid #ddd;
+        }
+
         /* List Item Styling */
         .list-item {
             display: flex;
             align-items: center;
-            margin: 20px 0;
+            margin: 10px 0;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 8px;
             text-decoration: none;
             color: inherit;
             background: #fff;
-            opacity: 0;
-            transform: translateY(10px);
             animation: slideUp 0.8s ease-out forwards;
         }
         .list-item:hover {
@@ -103,7 +110,7 @@
             color: #ff6347;
         }
 
-        /* Entry and Snowfall Animation */
+        /* Entry Animation */
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -141,6 +148,9 @@
             }
             .item-info {
                 text-align: center;
+            }
+            .scrollable-list {
+                max-height: 200px; /* Adjust height for mobile view */
             }
         }
     </style>
@@ -188,30 +198,33 @@
             </span>
         </h1>
 
-        <!-- List Items -->
-        <a href="https://www.bestbuy.ca/en-ca/product/samsung-75-4k-uhd-hdr-qled-tizen-os-smart-tv-qn75q60dafxzc-2024/17857409" target="_blank" class="list-item">
-            <img src="https://i.imgur.com/ENKDXTOm.jpg" alt="TV Thumbnail" class="thumbnail">
-            <div class="item-info">
-                <p class="item-name">🎁 Best Buy Gift Cards towards TV 🎁</p>
-                <p class="priority">Priority: High</p>
-            </div>
-        </a>
-        
-        <a href="https://ca.store.ui.com/ca/en/category/all-wifi/products/u7-pro" target="_blank" class="list-item">
-            <img src="https://i.imgur.com/hhLtbhbm.jpg" alt="Ubiquiti Thumbnail" class="thumbnail">
-            <div class="item-info">
-                <p class="item-name">🎁 Ubiquiti U7 Pro $239 🎁</p>
-                <p class="priority">Priority: Medium</p>
-            </div>
-        </a>
+        <!-- Scrollable List Container -->
+        <div class="scrollable-list">
+            <!-- List Items -->
+            <a href="https://www.bestbuy.ca/en-ca/product/samsung-75-4k-uhd-hdr-qled-tizen-os-smart-tv-qn75q60dafxzc-2024/17857409" target="_blank" class="list-item">
+                <img src="https://i.imgur.com/ENKDXTOm.jpg" alt="TV Thumbnail" class="thumbnail">
+                <div class="item-info">
+                    <p class="item-name">🎁 Best Buy Gift Cards towards TV 🎁</p>
+                    <p class="priority">Priority: High</p>
+                </div>
+            </a>
+            
+            <a href="https://ca.store.ui.com/ca/en/category/all-wifi/products/u7-pro" target="_blank" class="list-item">
+                <img src="https://i.imgur.com/hhLtbhbm.jpg" alt="Ubiquiti Thumbnail" class="thumbnail">
+                <div class="item-info">
+                    <p class="item-name">🎁 Ubiquiti U7 Pro $239 🎁</p>
+                    <p class="priority">Priority: Medium</p>
+                </div>
+            </a>
 
-        <a href="https://www.lttstore.com/products/cargo-pants" target="_blank" class="list-item">
-            <img src="https://i.imgur.com/wwOtTHcm.jpg" alt="Cargo Pants Thumbnail" class="thumbnail">
-            <div class="item-info">
-                <p class="item-name">🎁 LTT Cargo Pants 🎁</p>
-                <p class="priority">Priority: Low</p>
-            </div>
-        </a>
+            <a href="https://www.lttstore.com/products/cargo-pants" target="_blank" class="list-item">
+                <img src="https://i.imgur.com/wwOtTHcm.jpg" alt="Cargo Pants Thumbnail" class="thumbnail">
+                <div class="item-info">
+                    <p class="item-name">🎁 LTT Cargo Pants 🎁</p>
+                    <p class="priority">Priority: Low</p>
+                </div>
+            </a>
+        </div>
     </div>
 </body>
 </html>
