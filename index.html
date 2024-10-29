@@ -20,6 +20,8 @@
         .container {
             max-width: 90%;
             width: 100%;
+            max-height: 100vh;
+            overflow-y: auto;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -132,7 +134,8 @@
             .list-item {
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 15px;
+                padding: 10px;
+                margin: 10px 0;
             }
             .thumbnail {
                 width: 60px;
@@ -141,6 +144,13 @@
             }
             .item-info {
                 text-align: center;
+            }
+            .container {
+                padding: 15px;
+            }
+            /* Reduce snowflakes on mobile */
+            .snowflake:nth-child(n+4) {
+                display: none;
             }
         }
     </style>
@@ -151,8 +161,6 @@
     <div class="snowflake" style="left: 25%; animation-delay: 2s; font-size: 1.4em;">❅</div>
     <div class="snowflake" style="left: 40%; animation-delay: 4s;">❄️</div>
     <div class="snowflake" style="left: 60%; animation-delay: 1s; font-size: 1.8em;">❅</div>
-    <div class="snowflake" style="left: 75%; animation-delay: 3s;">❄️</div>
-    <div class="snowflake" style="left: 90%; animation-delay: 5s; font-size: 1.5em;">❅</div>
 
     <div class="container">
         <div class="ornaments">🎄✨🎁</div>
