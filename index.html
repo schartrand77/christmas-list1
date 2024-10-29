@@ -3,225 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stephen's Christmas List</title>
+    <title>Christmas List</title>
     <style>
-        /* Body and Container Styling */
         body {
+            background-color: #f0f0f0; /* Background color */
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: url('https://www.vmcdn.ca/f/files/villagelife/images/life/weatherseasonal/winter/winter/ontario-events/canadas-wonderland-3.jpeg;w=960') center / cover no-repeat, #f0f8ff;
-            color: #333;
-            margin: 0;
-            padding: 20px;
             display: flex;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .container {
-            max-width: 90%;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Title and Ornament Styling */
-        h1 {
-            display: flex;
-            justify-content: center;
-            color: #333;
-            font-size: 1.2em;
-            margin: 0;
-            flex-wrap: wrap;
-        }
-        .word {
-            display: flex;
-            gap: 4px;
-            margin: 0 4px;
-        }
-        .letter {
-            font-size: 1.5em;
-            font-weight: bold;
-            animation: colorChange 1.5s infinite;
-        }
-        
-        .ornaments {
-            position: absolute;
-            top: -20px;
-            width: 100%;
-            text-align: center;
-            font-size: 2em;
-            z-index: 2;
-        }
-        
-        /* Animations */
-        @keyframes colorChange {
-            0% { color: red; }
-            33% { color: green; }
-            66% { color: blue; }
-            100% { color: red; }
-        }
-        
-        /* Scrollable List Container */
-        .scrollable-list {
-            max-height: 300px; /* Adjust height for mobile and desktop */
-            overflow-y: auto;
-            margin-top: 20px;
-            padding-right: 10px;
-            border-top: 1px solid #ddd;
-            display: flex;
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center items horizontally */
-            width: 100%; /* Fill the container width */
-        }
-
-        /* List Item Styling */
-        .list-item {
-            display: flex;
             align-items: center;
-            margin: 10px 0;
+            height: 100vh; /* Full viewport height */
+            padding: 20px;
+        }
+
+        .list-container {
+            background-color: #ffffff; /* Container background color */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Width of the container */
+            max-width: 600px; /* Maximum width */
+            min-height: 100vh; /* Minimum height to fill the screen */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center items vertically */
+            padding: 20px;
+        }
+
+        .scrollable-list {
+            flex-grow: 1; /* Allow the list to grow and fill available space */
+            overflow-y: auto; /* Enable vertical scrolling */
             padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            text-decoration: none;
-            color: inherit;
-            background: #fff;
-            animation: slideUp 0.8s ease-out forwards;
-            width: 90%; /* Adjust the width of the list items */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center list items */
         }
-        .list-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        .thumbnail {
-            width: 50px;
-            height: 50px;
+
+        .list-item {
+            background-color: #e0e0e0; /* Item background color */
             border-radius: 5px;
-            margin-right: 10px;
+            margin: 10px 0; /* Margin between items */
+            width: 90%; /* Width of list items */
+            padding: 10px; /* Padding for list items */
+            text-align: center; /* Center text */
+            display: flex; /* Flex layout for item */
+            align-items: center; /* Center content vertically */
         }
+
         .item-info {
-            text-align: left;
+            margin-left: 10px; /* Space between image and text */
         }
+
+        .thumbnail {
+            width: 50px; /* Thumbnail width */
+            height: 50px; /* Thumbnail height */
+            border-radius: 5px; /* Rounded corners */
+        }
+
         .item-name {
-            font-weight: bold;
-            font-size: 1.1em;
+            font-weight: bold; /* Bold item name */
+            margin: 0; /* Remove margin */
         }
+
         .priority {
-            font-size: 0.9em;
-            color: #ff6347;
-        }
-
-        /* Entry Animation */
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Snowflakes */
-        .snowflake {
-            color: #ffffff;
-            font-size: 1.2em;
-            opacity: 0.8;
-            position: fixed;
-            top: -10px;
-            z-index: 0;
-            animation: fall 10s linear infinite;
-            user-select: none;
-        }
-        @keyframes fall {
-            to { transform: translateY(100vh); }
-        }
-
-        /* Media Queries for Mobile Responsiveness */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.1em;
-            }
-            .list-item {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 15px;
-            }
-            .thumbnail {
-                width: 60px;
-                height: 60px;
-                margin-bottom: 10px;
-            }
-            .item-info {
-                text-align: center;
-            }
-            .scrollable-list {
-                max-height: 200px; /* Adjust height for mobile view */
-            }
+            margin: 0; /* Remove margin */
+            color: #666; /* Priority text color */
         }
     </style>
 </head>
 <body>
-    <!-- Snowflakes for Festive Look -->
-    <div class="snowflake" style="left: 10%;">❄️</div>
-    <div class="snowflake" style="left: 25%; animation-delay: 2s; font-size: 1.4em;">❅</div>
-    <div class="snowflake" style="left: 40%; animation-delay: 4s;">❄️</div>
-    <div class="snowflake" style="left: 60%; animation-delay: 1s; font-size: 1.8em;">❅</div>
-    <div class="snowflake" style="left: 75%; animation-delay: 3s;">❄️</div>
-    <div class="snowflake" style="left: 90%; animation-delay: 5s; font-size: 1.5em;">❅</div>
-
-    <div class="container">
-        <div class="ornaments">🎄✨🎁</div>
-        
-        <h1>
-            <span class="word">
-                <span class="letter">S</span>
-                <span class="letter">t</span>
-                <span class="letter">e</span>
-                <span class="letter">p</span>
-                <span class="letter">h</span>
-                <span class="letter">e</span>
-                <span class="letter">n</span>
-                <span class="letter">'</span>
-                <span class="letter">s</span>
-            </span>
-            <span class="word">
-                <span class="letter">C</span>
-                <span class="letter">h</span>
-                <span class="letter">r</span>
-                <span class="letter">i</span>
-                <span class="letter">s</span>
-                <span class="letter">t</span>
-                <span class="letter">m</span>
-                <span class="letter">a</span>
-                <span class="letter">s</span>
-            </span>
-            <span class="word">
-                <span class="letter">L</span>
-                <span class="letter">i</span>
-                <span class="letter">s</span>
-                <span class="letter">t</span>
-            </span>
-        </h1>
-
-        <!-- Scrollable List Container -->
+    <div class="list-container">
+        <h1>🎄 Christmas List 🎄</h1>
         <div class="scrollable-list">
-            <!-- List Items -->
-            <a href="https://www.bestbuy.ca/en-ca/product/samsung-75-4k-uhd-hdr-qled-tizen-os-smart-tv-qn75q60dafxzc-2024/17857409" target="_blank" class="list-item">
-                <img src="https://i.imgur.com/ENKDXTOm.jpg" alt="TV Thumbnail" class="thumbnail">
+            <a href="https://www.example.com/item1" target="_blank" class="list-item">
+                <img src="https://i.imgur.com/d5KZ5tO.jpg" alt="Item 1 Thumbnail" class="thumbnail">
                 <div class="item-info">
-                    <p class="item-name">🎁 Best Buy Gift Cards towards TV 🎁</p>
+                    <p class="item-name">🎁 Example Item 1 🎁</p>
                     <p class="priority">Priority: High</p>
                 </div>
             </a>
-            
-            <a href="https://ca.store.ui.com/ca/en/category/all-wifi/products/u7-pro" target="_blank" class="list-item">
-                <img src="https://i.imgur.com/hhLtbhbm                .jpg" alt="Ubiquiti Thumbnail" class="thumbnail">
+            <a href="https://www.example.com/item2" target="_blank" class="list-item">
+                <img src="https://i.imgur.com/wwOtTHcm.jpg" alt="Item 2 Thumbnail" class="thumbnail">
+                <div class="item-info">
+                    <p class="item-name">🎁 Example Item 2 🎁</p>
+                    <p class="priority">Priority: Medium</p>
+                </div>
+            </a>
+            <a href="https://www.lttstore.com/products/ubiquiti-u7-pro" target="_blank" class="list-item">
+                <img src="https://i.imgur.com/Ubiquiti.jpg" alt="Ubiquiti Thumbnail" class="thumbnail">
                 <div class="item-info">
                     <p class="item-name">🎁 Ubiquiti U7 Pro $239 🎁</p>
                     <p class="priority">Priority: Medium</p>
                 </div>
             </a>
-
             <a href="https://www.lttstore.com/products/cargo-pants" target="_blank" class="list-item">
                 <img src="https://i.imgur.com/wwOtTHcm.jpg" alt="Cargo Pants Thumbnail" class="thumbnail">
                 <div class="item-info">
