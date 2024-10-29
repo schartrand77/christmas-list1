@@ -114,14 +114,19 @@
         
         /* Snowflakes */
         .snowflake {
-            color: #ffffff;
             font-size: 1.2em;
             opacity: 0.8;
             position: fixed;
             top: -10px;
             z-index: 0;
-            animation: fall 10s linear infinite;
+            animation: fall 10s linear infinite, colorChangeSnowflake 5s ease-in-out infinite;
             user-select: none;
+        }
+        @keyframes colorChangeSnowflake {
+            0% { color: #ADD8E6; }    /* Light Blue */
+            33% { color: #C0C0C0; }   /* Silver */
+            66% { color: #D8BFD8; }   /* Thistle (Faint Purple) */
+            100% { color: #ADD8E6; }  /* Back to Light Blue */
         }
         @keyframes fall {
             to { transform: translateY(100vh); }
