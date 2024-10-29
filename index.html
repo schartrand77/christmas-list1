@@ -84,9 +84,10 @@
             transform: translateY(10px);
             animation: slideUp 0.8s ease-out forwards;
             text-align: center; /* Center-align text inside each item */
+            transition: transform 0.3s ease; /* Add transition for scaling effect */
         }
         .list-item:hover {
-            transform: scale(1.02);
+            transform: scale(1.1); /* Scale up to 110% */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         .thumbnail {
